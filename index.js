@@ -34,7 +34,7 @@ const questions = [ // creates an array of questions to select in command line
 ];
 
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err, result) => {
+    fs.writeFile(fileName, data, (err) => {
         err ? console.error(err) : console.log('Logo has been created.');;
     })
 }
@@ -48,7 +48,8 @@ function generateSVG({ text, textColor, shape, shapeColor }) {
         case 'square':
             shapeInstance = new Square(text, textColor, shapeColor);
             break;
-        case 'triangle' = new Triangle(text, textColor, shapeColor);
+        case 'triangle':
+            shapeInstance = new Triangle(text, textColor, shapeColor);
             break;
         default:
             throw new Error('Invalid shape type')

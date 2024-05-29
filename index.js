@@ -14,7 +14,7 @@ const questions = [ // creates an array of questions to select in command line
         type: "input",
         name: "textColor",
         message: "What color will the text in the shape be?"
-        // TODO -->add choice hexidecimal number or color keyword 
+         
 
     },
     {
@@ -28,18 +28,18 @@ const questions = [ // creates an array of questions to select in command line
         type: "input",
         name: "shapeColor",
         message: "What color will the shape be?"
-        // TODO -->add choice hexidecimal number or color keyword 
+        
 
     }
 ];
 
-function writeToFile(fileName, data) {
+function writeToFile(fileName, data) { //creates file in file server and logs its completion in terminal
     fs.writeFile(fileName, data, (err) => {
         err ? console.error(err) : console.log('Logo has been created.');;
     })
 }
 
-function generateSVG({ text, textColor, shape, shapeColor }) {
+function generateSVG({ text, textColor, shape, shapeColor }) { //created a function to generate the file using switch/case with error for wrong input
     let shapeInstance;
     switch (shape) {
         case 'circle':
@@ -58,7 +58,7 @@ function generateSVG({ text, textColor, shape, shapeColor }) {
     
 }
 
-function init() {
+function init() { //uses inquirer to initialize the prompt and responses naming the newly created file
     inquirer.prompt(questions)
         .then((response) => {
             const svgContent = generateSVG(response);
